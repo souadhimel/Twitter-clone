@@ -1,12 +1,14 @@
 // dependencies
-
 const express=require("express")
 const path=require('path')
-const { notFoundHandler, errorHandlers } = require("./middlewares/errorHandlers")
+const dotenv=require('dotenv')
+const { notFoundHandler, errorHandlers } = require("./middlewares/common/errorHandlers")
+const cookieParser = require("cookie-parser")
+const authRouter=require('./routes/auth/authRoute')
 
 // app initialize
 const app=express()
-
+dotenv.config()
 
 // express settings
 app.set('view engine','pug')
@@ -14,13 +16,12 @@ app.set('views', 'views')
 
 // middleware
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
-
+app.use(cookieParser())
 
 // routing
-app.get('/',(req,res)=>{
-    res.render('index')
-})
+app.use(authRouter)
 
 
 // not found handler

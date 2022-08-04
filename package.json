@@ -4,14 +4,21 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server",
-    "start":"node server"
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
   },
-  "keywords": ["twitter clone"],
+  "keywords": [
+    "twitter clone"
+  ],
   "author": "Souad Anam Himel",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.5.1",
     "pug": "^3.0.2"
   }
 }
