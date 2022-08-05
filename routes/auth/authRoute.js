@@ -3,7 +3,7 @@ const {Router}=require("express")
 const dotenv=require("dotenv")
 const { getlogIn,getregister } = require("../../controllers/auth/authControllers")
 const decorateHtmlResponse = require("../../middlewares/common/decorateHtmlResponse")
-const router=Router('./routes/auth/authRoute.js')
+const router=Router('./routes/auth/authRoute')
 
 
 // config
