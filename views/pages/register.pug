@@ -34,27 +34,41 @@ block bodyContent
                 label(for="username")
                     b Username 
                 input#username(type="text", class="form-control", placeholder="Enter your user name ", name="username")
-                p.error.username-error Username is required
+                //- if error.username 
+                //-     p.error.username-error #{error.username.msg}
                 
                 label(for="email")
                     b Email 
-                input#email(type="text", class="form-control", placeholder="Enter your  email", name="email")
-                p.error.email-error Email is required
+                input#email(type="email", class="form-control", placeholder="Enter your  email", name="email")
+                //- if error.email 
+                //-     p.error.email-error #{error.email.msg}
+                 
                 
                 label(for="pasword")
                     b Password 
                 input#password(type="password", class="form-control", placeholder="Enter your password", name="password",required='')
-                p.error.password-error Password is required
+                //- if error.password 
+                //-     p.error.password-error #{error.password.msg}
+                 
+                
+                
                 label(for="confirmPasword")
                     b Confirm Password 
                 input#confirmpassword(type="password", class="form-control", placeholder="Enter your password", name="password",required='')
-                p.error.password-error Confirm password is required
-                label(for="profileAvatar")
+                //- if error.confirmPasword 
+                //-     p.error.confirmPasword-error #{error.confirmPasword.msg}
+                
+                
+                
+                
+                label(for="profileavatar")
                     b Profile Avatar
-                input#profileavatar(type="file",accept='.jpg,.png,.jpeg,.svg', class="form-control", name="profileAvatar",required='')
-                p.error.password-error Confirm password is required
+                input#profileavatar(type="file",accept='.jpg,.png,.jpeg,.svg', class="form-control", name="profileavatar",required='')
+                //- if error.profileavatar 
+                //-     p.error.profileavatar-error #{error.profileavatar.msg}
+                
                 
                 input(type="submit",class="form-control", value="Register")
 
             p  Already have an account? Then 
-                a(href="/login") Login here
+                a(href="/login", class="link") Login here
