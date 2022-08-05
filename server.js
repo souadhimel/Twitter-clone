@@ -5,6 +5,7 @@ const dotenv=require('dotenv')
 const { notFoundHandler, errorHandlers } = require("./middlewares/common/errorHandlers")
 const cookieParser = require("cookie-parser")
 const authRouter=require('./routes/auth/authRoute')
+const mongoose = require('mongoose');
 
 // app initialize
 const app=express()
@@ -33,9 +34,20 @@ app.use(errorHandlers)
 
 
 // listening
-app.listen(process.env.PORT||3000, ()=>{
-    console.log("Server is running on port " +  (process.env.PORT||3000) )
+mongoose.connect(process.env.DB_URI, { 
+    useUnifiedTopology: true, 
+    useNewUrlParser: true 
 })
+    .then(()=>{
+        console.log("DB connected")
+        app.listen(process.env.PORT||3000, ()=>{
+            console.log("Server is running on port " +  (process.env.PORT||3000));
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
 
 
 

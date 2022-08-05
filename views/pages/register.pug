@@ -13,4 +13,44 @@ block jsScript
 
 
 block bodyContent
-    h1 Register Page
+    .wrapper 
+        .login_wrapper 
+            h1 Register 
+            form(action="/register", method="post") 
+                
+                div.d-flex 
+                    div.me-3 
+                        label(for="username")
+                        b  First name
+                        input#firstname(type="text", class="form-control", placeholder="Enter your first name", name="firstname", required='')
+                        p.error.firstname-error First name is required
+                    div 
+                        label(for="username")
+                        b Last name 
+                        input#lastname(type="text", class="form-control", placeholder="Enter your last name", name="lastname",required='')
+                        p.error.lastname-error Last name is required
+                
+
+                label(for="username")
+                    b Username 
+                input#username(type="text", class="form-control", placeholder="Enter your user name ", name="username")
+                p.error.username-error Username is required
+                
+                label(for="email")
+                    b Email 
+                input#email(type="text", class="form-control", placeholder="Enter your  email", name="username")
+                p.error.email-error Email is required
+                
+                label(for="pasword")
+                    b Password 
+                input#password(type="password", class="form-control", placeholder="Enter your password", name="username",required='')
+                p.error.password-error Password is required
+                label(for="confirmPasword")
+                    b Confirm Password 
+                input#confirmpassword(type="password", class="form-control", placeholder="Enter your password", name="username",required='')
+                p.error.password-error Confirm password is required
+                
+                input(type="submit",class="form-control", value="Register")
+
+            p  Already have an account? Then 
+                a(href="/login") Login here
