@@ -20,7 +20,14 @@ const getregister=(req,res,next)=>{
     }
 }
 
+// register controller
+const register=(req,res,next)=>{
+    console.log(req.file);
+    console.log(req.body);
+}
+
 module.exports={
     getlogIn,
-    getregister
+    getregister,
+    register
 }

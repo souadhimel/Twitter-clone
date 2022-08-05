@@ -16,7 +16,7 @@ block bodyContent
     .wrapper 
         .login_wrapper 
             h1 Register 
-            form(action="/register", method="post") 
+            form(action="/register", method="post", enctype='multipart/form-data') 
                 
                 div.d-flex 
                     div.me-3 
@@ -38,16 +38,20 @@ block bodyContent
                 
                 label(for="email")
                     b Email 
-                input#email(type="text", class="form-control", placeholder="Enter your  email", name="username")
+                input#email(type="text", class="form-control", placeholder="Enter your  email", name="email")
                 p.error.email-error Email is required
                 
                 label(for="pasword")
                     b Password 
-                input#password(type="password", class="form-control", placeholder="Enter your password", name="username",required='')
+                input#password(type="password", class="form-control", placeholder="Enter your password", name="password",required='')
                 p.error.password-error Password is required
                 label(for="confirmPasword")
                     b Confirm Password 
-                input#confirmpassword(type="password", class="form-control", placeholder="Enter your password", name="username",required='')
+                input#confirmpassword(type="password", class="form-control", placeholder="Enter your password", name="password",required='')
+                p.error.password-error Confirm password is required
+                label(for="profileAvatar")
+                    b Profile Avatar
+                input#profileavatar(type="file",accept='.jpg,.png,.jpeg,.svg', class="form-control", name="profileAvatar",required='')
                 p.error.password-error Confirm password is required
                 
                 input(type="submit",class="form-control", value="Register")

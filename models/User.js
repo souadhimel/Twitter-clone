@@ -46,11 +46,14 @@ const userSchema=new mongoose.Schema({
         }
 
     },
-    
-
-
+    profileAvatar:{
+        type:String,
+        required:true,
+    }
 
 },{
     timestamps:true,
 })
 const User=new mongoose.model('User',userSchema)
+
+module.exports=User;

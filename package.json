@@ -19,6 +19,7 @@
     "express-validator": "^6.14.2",
     "http-errors": "^2.0.0",
     "mongoose": "^6.5.1",
+    "multer-uploader": "^1.0.8",
     "pug": "^3.0.2"
   }
 }
